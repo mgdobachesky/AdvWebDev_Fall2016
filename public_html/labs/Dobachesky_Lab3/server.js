@@ -27,7 +27,7 @@ var serverFunc = function(request, response) {
             } else if (fileName === 'index.html') {
                 //if reading succeeds and the index page is requested, load the html page
                 response.writeHead(200, {'Content-Type': 'text/html'});
-                response.write(data);
+                response.write(data.toString());
             }
         }
         
