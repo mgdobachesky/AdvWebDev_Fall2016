@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Michael Dobachesky - Lab 3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="title"></div>
+        
+        <script type="text/javascript">
+            'use strict';
+            
+            //displayData function runs to resolve the promise in the getData function
+            var handlePromise = {
+                success: function(data) {
+                    fillHtml(data);
+                },
+                error: function(data) {
+                    console.log('error', data);
+                }
+            };
+
+            //getData function makes an ajax call to a url and returns json
+            var getData = function(url) {
+                //define the new promise's callback
+                var userPromise = function(resolve, reject) {
+                    //create new httpRequest object
+                    var httpRequest = new XMLHttpRequest();
+                    
+                    //if the status was returned in the 200s (successful), resolve the promise with the returned data
+                    //else reject the promise with the status text
+                    var httpResolve = function() {
+                        if(this.status >= 200 && this.status < 300) {
+                            resolve(JSON.parse(this.response));
+                        } else {
+                            reject(this.statusText);
+                        }
+                    };
+                    
+                    //also reject promise if there was an error loading the httpRequest
+                    var httpReject = function() {
+                        reject(this.statusText);
+                    };
+                    
+                    //display an error if the http request object cannot be created
+                    if(!httpRequest) {
+                        reject('Cannot create an XMLHTTP instance!');
+                    }
+
+                    //open the request to the url with the intention to GET data, then send the request
+                    httpRequest.open('GET', url);
+                    httpRequest.send();
+
+                    //add event listeners for the load and error events on the httpRequest
+                    httpRequest.addEventListener('load', httpResolve.bind(httpRequest));
+                    httpRequest.addEventListener('error', httpReject.bind(httpRequest));
+                };
+                
+                //create a new promise
+                var promise = new Promise(userPromise);
+
+                //return the promise
+                return promise;
+            };
+
+            //fillHtml function runs if the promise was successful and data was returned
+            var fillHtml = function(data) {
+                //fill the console with the data
+                console.log(JSON.stringify(data));
+                //create a link to the div with class 'title'
+                var dom = document.querySelector('.title');
+                //create a document fragment to append to
+                var docFrag = document.createDocumentFragment();
+                
+                //for each piece of data create a p tag on the fragment for later use by the above div
+                data.forEach(function(datum) {
+                    //create the tags used
+                    var pTag = document.createElement("p"),
+                    strongTag = document.createElement("strong"),
+                    pText = document.createTextNode(datum.title),
+                    strongText = document.createTextNode("Title: ");
+                    
+                    //fill the tags
+                    strongTag.appendChild(strongText);
+                    pTag.appendChild(strongTag);
+                    pTag.appendChild(pText);
+                    
+                    //append the p tag to the document fragment
+                    docFrag.appendChild(pTag);
+                });
+                
+                //append the document fragment to the div with class 'title'
+                dom.appendChild(docFrag);
+            };
+
+            //run the function that will set off a promise that gets the data and later resolves to append it to a div element
+            getData('http://localhost:3000/todo').then(handlePromise.success, handlePromise.error);
+        </script>
+    </body>
+</html>
