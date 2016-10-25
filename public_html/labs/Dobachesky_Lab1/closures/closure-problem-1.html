@@ -13,8 +13,9 @@
 			var globalNumber = 10; 
 			function addNumber(myNumber){ 
 				return globalNumber + myNumber; 
-			}
-			console.log( addNumber(5) === 15, 'The value should be true' );
+			} 
+			globalNumber = 15; 
+			console.log( addNumber(5) === 20, 'The value should be true' );
         </script>
     </body>
 </html>

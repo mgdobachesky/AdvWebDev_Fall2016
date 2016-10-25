@@ -1,7 +1,7 @@
 /*
  * In Order to run this Demo you must first install the packages needed.
  * You will have to make sure you are in the currect folder where this file
- * is located along with the package.json
+ * is located aling with the package.json
  * in the node terminal window you will need to run the command
  * npm install
  * it will know to find package.json and auto install
