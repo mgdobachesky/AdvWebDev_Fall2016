@@ -1,0 +1,15 @@
+mixin updateDate(dateString)
+	-var date = new Date(dateString);
+	-var d = date.getDate();
+	-var m = date.getMonth() + 1;
+	-var y = date.getFullYear();
+	-var output = m + '-' + d + '-' + y;
+	input#startDate.form-control.datepicker(name="startDate" value=output required)
+	
+mixin viewDate(dateString)
+	-var date = new Date(dateString);
+	-var d = date.getDate();
+	-var m = date.getMonth() + 1;
+	-var y = date.getFullYear();
+	-var output = m + '-' + d + '-' + y;
+	td= output

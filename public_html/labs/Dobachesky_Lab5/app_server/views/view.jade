@@ -1,0 +1,31 @@
+include _includes/sharedHTMLfunctions
+
+extends layout
+	
+block content
+	h1= title
+	h2= message
+	table.table
+		thead
+			tr
+				th First Name
+				th Last Name
+				th Department
+				th Start Date
+				th Job Title
+				th Salary
+				th
+				th
+		tbody
+		- each employee in results
+			tr
+				td= employee.firstName
+				td= employee.lastName
+				td= employee.department
+				+viewDate(employee.startDate)
+				td= employee.jobTitle
+				td $#{employee.salary}
+				td 
+					a.linkStyle(href="../update/#{employee._id}") Update
+				td 
+					a.linkStyle(href="../view/#{employee._id}") Delete

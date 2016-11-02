@@ -1,0 +1,25 @@
+doctype html
+html
+	head
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		title= title
+		link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/dtp/css/bootstrap-datepicker.css')
+		link(rel='stylesheet', href='/css/style.css')
+	body
+		.navbar.navbar-default
+			.container
+				#navbar-main
+					.nav.navbar-nav
+						li 
+							a(href='/index') Home
+						li
+							a(href='/view') View Employees
+						
+		.container
+			block content
+		script(src='/jquery/jquery.js')
+		script(src='/bootstrap/dist/js/bootstrap.min.js')
+		script(src='/scripts/validation.js')
+		script(src='/dtp/js/bootstrap-datepicker.min.js')
+		script(src='/scripts/dtp.js')
