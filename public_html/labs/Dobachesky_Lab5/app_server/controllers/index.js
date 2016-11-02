@@ -121,6 +121,8 @@ module.exports.update = function(req, res) {
 			
 			//update the title of the page
 			title = "Update Results";
+		} else {
+			message = "All fields required, please try again";
 		}
 	}
 	
