@@ -1,0 +1,32 @@
+<h1>{{vm.title}}</h1>
+
+<div class="content">
+	<p ng-class="{'alert alert-info' : vm.message.length}">{{vm.message}}</p>
+	<form>
+		<div class="form-group">
+			<input type="text" name="firstName" value="" placeholder="First Name" ng-model="fm.data.firstName" />
+		</div>
+		
+		<div class="form-group">
+			<input type="text" name="lastName" value="" placeholder="Last Name" ng-model="fm.data.lastName" />
+		</div>
+		
+		<div class="form-group">
+			<input type="text" name="department" value="" placeholder="Department" ng-model="fm.data.department" />
+		</div>
+		
+		<div class="form-group">
+			<input type="text" name="startDate" value="" placeholder="Start Date" ng-model="fm.data.startDate" />
+		</div>
+		
+		<div class="form-group">
+			<input type="text" name="jobTitle" value="" placeholder="Job Title" ng-model="fm.data.jobTitle" />
+		</div>
+		
+		<div class="form-group">
+			<input type="text" name="salary" value="" placeholder="salary" ng-model="fm.data.salary" />
+		</div>
+		
+		<input type="submit" value="Submit" class="btn btn-default" ng-click="vm.submit()" />
+	</form>
+</div>
