@@ -4,7 +4,7 @@ html
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		title= title
 		link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
-		link(rel='stylesheet', href='/dtp/css/bootstrap-datepicker.css')
+		link(rel='stylesheet', href='/src/css/angular-datepicker.css')
 		link(rel='stylesheet', href='/css/style.css')
 	body(ng-app="app")
 		.navbar.navbar-default
@@ -12,14 +12,15 @@ html
 				#navbar-main
 					.nav.navbar-nav
 						li 
-							a(href='/') Home
+							a(href='/#/') Home
+						li
+							a(href='/#/create') Add New Employee
 		.container
 			div(ng-view ng-cloak)
 				block content
-		script(src='/lib/angular.js')
-		script(src='/lib/angular-route.js')
-		script(src='/lib/review.min.js')
 		script(src='/jquery/jquery.js')
 		script(src='/bootstrap/dist/js/bootstrap.min.js')
-		script(src='/dtp/js/bootstrap-datepicker.min.js')
-		script(src='/scripts/dtp.js')
+		script(src='/lib/angular.js')
+		script(src='/lib/angular-route.js')
+		script(src='/lib/employee.min.js')
+		script(src='/src/js/angular-datepicker.js')

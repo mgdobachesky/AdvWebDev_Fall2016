@@ -36,11 +36,11 @@ var appClientFiles = [
 var uglified = uglifyJs.minify(appClientFiles, {"compress" : false});
 
 //write new minified javascript file to the filesystem for use in the client app
-fs.writeFile('public/lib/review.min.js', uglified.code, function(err) {
+fs.writeFile('public/lib/employee.min.js', uglified.code, function(err) {
 	if(err) {
 		console.log(err);
 	} else {
-		console.log("Script generated and saved: ", 'review.min.js');
+		console.log("Script generated and saved: ", 'employee.min.js');
 	}
 });
 

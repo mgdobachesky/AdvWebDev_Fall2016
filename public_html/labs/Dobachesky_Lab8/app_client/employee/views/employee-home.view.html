@@ -1,11 +1,12 @@
 <h1>Employee Table</h1>
 
 <div class="content">
-	<h3>Search</h3>
-	<input ng-model="searchText">
+	<form class="form-inline">
+		<h3><span>Search </span>
+		<input ng-model="searchText" class="form-control" /></h3>
+	</form>
 	<br />
 	<div ng-class="{'alert alert-info' : vm.message.length}">{{vm.message}}</div>
-	<p><a href="#/create/">Add New Employee</a></p>
 	<table class="table">
 		<thead>
 			<tr>
@@ -26,9 +27,9 @@
 			<td>{{employee.department}}</td>
 			<td>{{employee.startDate}}</td>
 			<td>{{employee.jobTitle}}</td>
-			<td>{{employee.salary}}</td>
-			<td><a ng-href="#/update/{{employee._id}}">Update</a></td>
-			<td><button ng-click="vm.deleteEmployee(employee._id)">Delete</button></td>
+			<td>${{employee.salary}}</td>
+			<td><button class="btn btn-default btn-xs"><a class="plaintext" ng-href="#/update/{{employee._id}}">Update</a></button></td>
+			<td><button class="btn btn-default btn-xs" ng-click="vm.deleteEmployee(employee._id)">Delete</button></td>
 		</tr>
 	</table>
 </div>

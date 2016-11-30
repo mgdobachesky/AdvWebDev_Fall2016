@@ -48,7 +48,7 @@
 			}
 			
 			//method to add an employee
-			function createEmployee() {
+			function createEmployee(data) {
 				return $http.post(url, data).then(createComplete, createFailed);
 				
 				function createComplete(response) {
@@ -78,7 +78,7 @@
 			function deleteEmployee(_id) {
 				var deleteUrl = url + '/' + _id;
 				
-				return $http.delete(delUrl).then(deleteComplete, deleteFailed);
+				return $http.delete(deleteUrl).then(deleteComplete, deleteFailed);
 				
 				function deleteComplete(response) {
 					return 'Delete Completed!';

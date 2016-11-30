@@ -2,7 +2,7 @@
 (function() {
 	'use strict';
 	angular
-		.module('app.review')
+		.module('app.employee')
 		.constant('REQUEST', {
 			'employees' : '/api/v1/employees'
 		});
