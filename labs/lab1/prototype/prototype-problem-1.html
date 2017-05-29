@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>prototype-problem-1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+		<script type="text/javascript"> 
+		  'use strict';
+		 
+		   function CSS(selector) {
+			 /* complete the class using the prototype to build the functions with chaining */ 
+				this.selector = selector;
+		   }
+		   
+		     CSS.prototype.red = function() {
+				document.querySelector(this.selector).style.color = 'red';
+				return this;
+			 }
+			 
+			 CSS.prototype.size = function(fontStyle) {
+				document.querySelector(this.selector).style.fontSize = fontStyle;
+				return this;
+			 }
+			 
+			 CSS.prototype.bold = function() {
+				document.querySelector(this.selector).style.fontWeight = 'bold';
+				return this;
+			 }
+			 
+			 CSS.prototype.underline = function() {
+				document.querySelector(this.selector).style.textDecoration = 'underline';
+				return this;
+			 }
+		 
+		   /* Do not change the code below.  Access the DOM object to change the styles */
+		   var div = new CSS('div');
+		   div.red().size('4em').bold().underline();
+		 </script>
+    </body>
+</html>

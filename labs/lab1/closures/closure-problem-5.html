@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>closure-problem-5</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p>Open browser console</p>
+        <script type="text/javascript">
+            'use strict';
+			/* 
+			* Fix the loop with a closure so the console will display the correct value 
+			* you can move/add code if you need to(hint hint)
+			*/ 
+			for ( var a = 0; a < 5; a++ ) { 
+				aFunction(a);
+			}
+			
+			function aFunction(a) {
+					setTimeout(function(){
+						 console.log( 'The Value of a is = ', a ); 
+					}, 100);
+				}
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<h1>Employee Table</h1>
+
+<div class="content">
+	<form class="form-inline">
+		<h3><span>Search </span>
+		<input ng-model="searchText" class="form-control" /></h3>
+	</form>
+	<br />
+	<div ng-class="{'alert alert-info' : vm.message.length}">{{vm.message}}</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Department</th>
+				<th>Start Date</th>
+				<th>Job Title</th>
+				<th>Salary</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		
+		<tr ng-repeat="employee in vm.employees | filter:searchText">
+			<td>{{employee.firstName}}</td>
+			<td>{{employee.lastName}}</td>
+			<td>{{employee.department}}</td>
+			<td>{{employee.startDate}}</td>
+			<td>{{employee.jobTitle}}</td>
+			<td>${{employee.salary}}</td>
+			<td><button class="btn btn-default btn-xs"><a class="plaintext" ng-href="#/update/{{employee._id}}">Update</a></button></td>
+			<td><button class="btn btn-default btn-xs" ng-click="vm.deleteEmployee(employee._id)">Delete</button></td>
+		</tr>
+	</table>
+</div>

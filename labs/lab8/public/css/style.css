@@ -1,0 +1,17 @@
+body {
+	background-color: #a32a2e;
+	color: #dbcbcc;
+}
+
+.linkStyle:link, .linkStyle:visited, .linkStyle:hover, .linkStyle:active {
+	color: #dbcbcc;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.plaintext:link, .plaintext:visited, .plaintext:hover, .plaintext:active {
+	color: black;
+	text-decoration: none;
+}

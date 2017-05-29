@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	h1= title
+	table.table
+		thead
+			tr
+				th First Name
+				th Last Name
+				th Department
+				th Start Date
+				th Job Title
+				th Salary
+		tbody
+		- each employee in results
+			tr
+				td= employee.firstName
+				td= employee.lastName
+				td= employee.department
+				td= employee.startDate
+				td= employee.jobTitle
+				td $#{employee.salary}
+		
